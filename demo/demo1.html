@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>count-down</title>
+  <script src="../dist/count-down.js"></script>
+</head>
+<body>
+  <h1>倒计时</h1>
+  <div id="count-down">
+    <span class="hours"></span>
+    <span class="minutes"></span>
+    <span class="seconds"></span>
+  </div>
+  <script>
+var $countdown = document.getElementById('count-down')
+var $hours = $countdown.querySelector('.hours')
+var $minutes = $countdown.querySelector('.minutes')
+var $seconds = $countdown.querySelector('.seconds')
+
+var countdown = new CountDown({time: 1000000})
+
+countdown.on('change', (data) => {
+  $hours.innerHTML = `${data.hours}时`
+  $minutes.innerHTML = `${data.minutes}分`
+  $seconds.innerHTML = `${data.seconds}秒`
+})
+</script>
+</body>
+</html>
